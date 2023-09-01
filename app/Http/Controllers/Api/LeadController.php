@@ -12,21 +12,27 @@ class LeadController extends Controller
 {
     //CREO LA FUNZIONE STORE
 
-    public function sotre(Request $request){
+    public function store(Request $request){
         $data = $request->all();
 
             // VALIDIAMO I DATI
-        $validator =Validator::make($data,[
+        $validator = Validator::make($data,[
             'name'    => 'required',
             'email'   => 'required|email',
             'content' => 'required',
         ]);
 
         // VERIFICO SE LA RICHIESTA NON VA A BUON FINE
-        if($validator->fails())[
-            'success' => false,
+        if($validator->fails()){
+
+
+            return response()->json([
+                'success' => false,
             'errors' =>  $validator->errors()
-        ];
+
+            ]);
+            
+        };
 
 
         //SALVO I DATI NEL DATABASE
