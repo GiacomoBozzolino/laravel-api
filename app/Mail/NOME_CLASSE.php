@@ -34,7 +34,7 @@ class NOME_CLASSE extends Mailable
     {
         return new Envelope(
             subject: 'Nuovo contatto da form Boolfolio',
-            replyTo: $this->lead->adress;
+            replyTo: $this->lead->adress,
         );
     }
 
