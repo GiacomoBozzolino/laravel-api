@@ -19,10 +19,9 @@ class NOME_CLASSE extends Mailable
      *
      * @return void
      */
-    public function __construct($_lead)
+    public function __construct($lead)
     {
-        $this->lead->$_lead;
-
+        $this->lead = $lead;
     }
 
     /**
@@ -33,8 +32,8 @@ class NOME_CLASSE extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Nuovo contatto da form Boolfolio',
             replyTo: $this->lead->email,
+            subject: 'Nuovo contatto da form BoolPetCare',
         );
     }
 
